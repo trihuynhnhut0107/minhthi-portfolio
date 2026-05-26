@@ -14,7 +14,12 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.siteOrigin = window.location.origin;
+      document.write(
+        `<link rel="stylesheet" href="${window.siteOrigin}/src/styles.css" />`,
+      );
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -33,7 +38,7 @@
         <div class="hero-main">
           <div class="profile-intro">
             <img
-              src="public/image/profile-pic.jpg"
+              data-static-src="public/image/profile-pic.jpg"
               alt="Portrait of Minh Thi Nguyen Xuan"
               class="profile-photo" />
             <div>
@@ -505,6 +510,15 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll("[data-static-src]").forEach((element) => {
+        element.src = `${window.siteOrigin}/${element.dataset.staticSrc}`;
+      });
+    </script>
+    <script>
+      const script = document.createElement("script");
+      script.src = `${window.siteOrigin}/src/script.js`;
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
