@@ -1,4 +1,4 @@
-# MTHI Portfolio
+# Minh Thi Portfolio
 
 A standalone portfolio website for an Event Management Specialist focused on sport campaign promotion and participant experience.
 
