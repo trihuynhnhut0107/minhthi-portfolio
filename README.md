@@ -1,6 +1,6 @@
 # Minh Thi Portfolio
 
-A standalone portfolio website for an Event Management Specialist focused on sport campaign promotion and participant experience.
+A standalone portfolio website for an Event Operations & Account Management Executive focused on strategic planning, user-centric experience design, and high-value partnership management.
 
 ## Run locally
 

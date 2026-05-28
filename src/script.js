@@ -17,3 +17,32 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealElements.forEach((element) => revealObserver.observe(element));
+
+const pdfDialog = document.querySelector(".pdf-dialog");
+const pdfDialogTitle = document.querySelector("#pdf-dialog-title");
+const pdfDialogFrame = document.querySelector(".pdf-dialog-frame");
+const pdfExternalLink = document.querySelector(".pdf-external-link");
+const pdfCloseButton = document.querySelector(".pdf-dialog-close");
+
+if (pdfDialog && pdfDialogTitle && pdfDialogFrame && pdfExternalLink && pdfCloseButton) {
+  document.querySelectorAll(".pdf-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      pdfDialogTitle.textContent = card.dataset.title;
+      pdfDialogFrame.src = card.dataset.pdf;
+      pdfExternalLink.href = card.dataset.link;
+      pdfDialog.showModal();
+    });
+  });
+
+  pdfCloseButton.addEventListener("click", () => pdfDialog.close());
+
+  pdfDialog.addEventListener("click", (event) => {
+    if (event.target === pdfDialog) {
+      pdfDialog.close();
+    }
+  });
+
+  pdfDialog.addEventListener("close", () => {
+    pdfDialogFrame.src = "";
+  });
+}
